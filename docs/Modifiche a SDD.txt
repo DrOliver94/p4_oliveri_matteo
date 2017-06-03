@@ -1,0 +1,27 @@
+Modifiche rispetto alle precedenti versioni del SDD
+
+1. Sono stati aggiunti in Sistema i metodi
+	mainLoop()
+	switchAddCredenziali()
+	switchRemoveCredenziali()
+	switchListApp()
+	switchVisualizzaDati()
+per permettere a un utente di accedere alle funzioni del sistema usando la linea di comando come interfaccia.
+
+2. Per normalizzare e salavre in un oggetto di tipo Dati le informazioni che derivano dai file scaricati dallo store, è stato aggiunto il Visitor Normalizzazione.
+
+3. Per il salvataggio dei dati, si è usato la combinazione delle classi
+	DatiElement
+	DatiList
+	DatiInteger
+	DatiValue
+Con queste classi è possibile memorizzare coppie chiave-valore e strutturarle gerarchicamente.
+In un oggetto DatiList è possibile inserire altri DatiList (con add(String)) o coppie chiave-valore con le classi DatiInteger/DatiValue (con add(String, int), add(String, double))
+Si può navigare la struttura usando get(String) e passando i nomi dei nodi da recuperare. Per ottenere i valori contenuti in DatiDouble/DatiInteger, si usa getValue(String).
+Si può stampare il contenuto della struttura usando printRecursive(), che avvia una funzione ricorsiva su ogni DatiElement stampandone a video il contenuto.
+La classe Dati è stata di conseguenza modificata per contenere più oggetti di tipo DatiList
+
+4. Per simulare il comportamento di un generico AppStore si è costruita la classe StoreServerMock. Il sistema usa questa classe al momento di verificare le credenziali di uno Store per mezzo del visitor Accesso, e per il recupero dei dati di un'App tramite il visitor EstrazioneDati
+
+5. Il tipo di ritorno dei metodi visit() dei vari visitor e dei metodi accept() degli ElementAppStore è stato cambiato in Object per poter ritornare esiti di visite o oggetti necessari a determinate operazioni.
+
