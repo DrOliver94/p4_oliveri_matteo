@@ -64,7 +64,6 @@ public class GoogleStore implements ElementAppStore {
      */
     @Override
     public ArrayList<App> getListaApp() {
-
     	return null;
     }
 

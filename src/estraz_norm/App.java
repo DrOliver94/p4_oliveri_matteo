@@ -75,13 +75,14 @@ public class App {
     public Dati getDati() {
 		return dati;
 	}
-    
+
     public ElementAppStore getAppStore() {
     	return appStore;
     }
+
+	public int getNomeApp() {
+		return 0;
+	}
     
-    public String getNomeApp() {
-    	return nomeApp;
-    }
     
 }

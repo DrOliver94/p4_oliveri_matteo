@@ -36,7 +36,7 @@ public class DatiList extends DatiElement {
 	 * Aggiunge un DatiInteger a list
 	 */
 	@Override
-	public void addInt(String name, int value) {
+	public void add(String name, int value) {
 		list.add(new DatiInteger(name, value));
 		index.put(name, list.size()-1);
 	}
@@ -46,7 +46,7 @@ public class DatiList extends DatiElement {
 	 * Aggiunge un DatiDouble a list
 	 */
 	@Override
-	public void addDouble(String name, double value) {
+	public void add(String name, double value) {
 		list.add(new DatiDouble(name, value));
 		index.put(name, list.size()-1);
 	}
@@ -60,7 +60,7 @@ public class DatiList extends DatiElement {
 		if(index.get(name) != null) {
 			return list.get(index.get(name));
 		}
-		return new DatiElement("");
+		return null;
 	}
 	
 	

@@ -14,7 +14,7 @@ public class Sistema {
 	private WinStore winStore;
     
 	private ArrayList<App> apps;
-    private ArrayList<Gruppo> gruppi;
+	private ArrayList<Gruppo> gruppi;
     
     private Scanner scan;
     
@@ -31,6 +31,7 @@ public class Sistema {
     public static void main(String[] args) {
     	Sistema sistema = new Sistema();
     	
+    	//Aggiunta di una App e di un Gruppo di esempio
     	App a = new App(1, "MyApp1", new GoogleStore());
     	Gruppo g = new Gruppo(1, "MyGroup1");
     	g.getListApp().add(a);
@@ -194,7 +195,8 @@ public class Sistema {
     	case 2:
     		chosenAppStore = AppStore.GOOGLESTORE;
     		break;
-    	case 3:apps.get(0).visualizzazioneDati();
+    	case 3:
+//    		apps.get(0).visualizzazioneDati();
     		chosenAppStore = AppStore.WINSTORE;
     		break;
     	default:
@@ -368,7 +370,6 @@ public class Sistema {
     	ArrayList<Integer> removingApps = new ArrayList<>();
     	for(App a:apps) {
     		if(a.getAppStore().equals(deletingStore)) {
-//    			apps.remove(a);
     			removingApps.add(apps.indexOf(a));
     		}
     	}
@@ -420,6 +421,10 @@ public class Sistema {
 
 	public void setWinStore(WinStore winStore) {
 		this.winStore = winStore;
+	}
+	
+	public ArrayList<App> getApps() {
+		return apps;
 	}
 	
 }

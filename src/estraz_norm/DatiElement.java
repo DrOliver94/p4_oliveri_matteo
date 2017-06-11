@@ -13,16 +13,12 @@ public class DatiElement {
 	}
 	
 	public void add(String name) { }
-	
 	public void add(String name, double value) { }
+	public void add(String name, int value) { }
 	
 	public DatiElement get(String name) { return null; }
-
 	public Double getDouble() { return null; }
-	public void addDouble(String name, double value) { }
-	
 	public Integer getInt() { return null; }
-	public void addInt(String name, int value) { }
 	
 	/**
 	 * Stampa ricorsivamente l'albero formato da DatiList e DatiDouble/Integer

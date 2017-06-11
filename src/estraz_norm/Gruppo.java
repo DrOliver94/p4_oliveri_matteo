@@ -61,10 +61,6 @@ public class Gruppo {
     	return null;
     }
     
-    public String getNomeGruppo() {
-		return nomeGruppo;
-	}
-    
     public ArrayList<App> getListApp() {
 		return listApp;
 	}

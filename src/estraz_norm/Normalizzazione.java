@@ -19,12 +19,7 @@ public class Normalizzazione implements Visitor {
 
     @Override
     public Object visit(AppleStore apple) {
-    	return null;
-    }
-	
-	@Override
-	public Object visit(GoogleStore google) {
-		Scanner fileScan = null;
+    	Scanner fileScan = null;
 		Scanner lineScan = null;
 		Dati dati = app.getDati();
 		dati = new Dati();
@@ -55,16 +50,16 @@ public class Normalizzazione implements Visitor {
 						installsOverview.add(data);
 						break;
 					case "Total User Installs":
-						installsOverview.get(data).addInt(listTitoli.get(i), Integer.parseInt(readValue));
+						installsOverview.get(data).add(listTitoli.get(i), Integer.parseInt(readValue));
 						break;
 					case "Daily User Installs":
-						installsOverview.get(data).addInt(listTitoli.get(i), Integer.parseInt(readValue));
+						installsOverview.get(data).add(listTitoli.get(i), Integer.parseInt(readValue));
 						break;
 					case "Daily User Uninstalls":
-						installsOverview.get(data).addInt(listTitoli.get(i), Integer.parseInt(readValue));
+						installsOverview.get(data).add(listTitoli.get(i), Integer.parseInt(readValue));
 						break;
 					case "Active Device Installs":
-						installsOverview.get(data).addInt(listTitoli.get(i), Integer.parseInt(readValue));
+						installsOverview.get(data).add(listTitoli.get(i), Integer.parseInt(readValue));
 						break;
 					}
 					
@@ -116,16 +111,16 @@ public class Normalizzazione implements Visitor {
 						installsByAppVersion.get(data).add(appVersion);
 						break;
 					case "Total User Installs":
-						installsByAppVersion.get(data).get(appVersion).addInt(listTitoli.get(i), Integer.parseInt(readValue));
+						installsByAppVersion.get(data).get(appVersion).add(listTitoli.get(i), Integer.parseInt(readValue));
 						break;
 					case "Daily User Installs":
-						installsByAppVersion.get(data).get(appVersion).addInt(listTitoli.get(i), Integer.parseInt(readValue));
+						installsByAppVersion.get(data).get(appVersion).add(listTitoli.get(i), Integer.parseInt(readValue));
 						break;
 					case "Daily User Uninstalls":
-						installsByAppVersion.get(data).get(appVersion).addInt(listTitoli.get(i), Integer.parseInt(readValue));
+						installsByAppVersion.get(data).get(appVersion).add(listTitoli.get(i), Integer.parseInt(readValue));
 						break;
 					case "Active Device Installs":
-						installsByAppVersion.get(data).get(appVersion).addInt(listTitoli.get(i), Integer.parseInt(readValue));
+						installsByAppVersion.get(data).get(appVersion).add(listTitoli.get(i), Integer.parseInt(readValue));
 						break;
 					}
 					
@@ -178,16 +173,16 @@ public class Normalizzazione implements Visitor {
 						installsByCountry.get(data).add(country);
 						break;
 					case "Total User Installs":
-						installsByCountry.get(data).get(country).addInt(listTitoli.get(i), Integer.parseInt(readValue));
+						installsByCountry.get(data).get(country).add(listTitoli.get(i), Integer.parseInt(readValue));
 						break;
 					case "Daily User Installs":
-						installsByCountry.get(data).get(country).addInt(listTitoli.get(i), Integer.parseInt(readValue));
+						installsByCountry.get(data).get(country).add(listTitoli.get(i), Integer.parseInt(readValue));
 						break;
 					case "Daily User Uninstalls":
-						installsByCountry.get(data).get(country).addInt(listTitoli.get(i), Integer.parseInt(readValue));
+						installsByCountry.get(data).get(country).add(listTitoli.get(i), Integer.parseInt(readValue));
 						break;
 					case "Active Device Installs":
-						installsByCountry.get(data).get(country).addInt(listTitoli.get(i), Integer.parseInt(readValue));
+						installsByCountry.get(data).get(country).add(listTitoli.get(i), Integer.parseInt(readValue));
 						break;
 					}
 					
@@ -242,15 +237,15 @@ public class Normalizzazione implements Visitor {
 						if(!readValue.equals("NA")) {
 							ratingsOverview.get(data)
 										   .get(packageName)
-										   .addDouble(listTitoli.get(i), Double.parseDouble(readValue));
+										   .add(listTitoli.get(i), Double.parseDouble(readValue));
 						} else {
 							ratingsOverview.get(data)
 							   .get(packageName)
-							   .addDouble(listTitoli.get(i), -1.0);
+							   .add(listTitoli.get(i), -1.0);
 						}
 						break;
 					case "Total Average Rating":
-						ratingsOverview.get(data).get(packageName).addDouble(listTitoli.get(i), Double.parseDouble(readValue));
+						ratingsOverview.get(data).get(packageName).add(listTitoli.get(i), Double.parseDouble(readValue));
 						break;
 					}
 					
@@ -305,15 +300,15 @@ public class Normalizzazione implements Visitor {
 						if(!readValue.equals("NA")) {
 							ratingsByCountry.get(data)
 										   .get(country)
-										   .addDouble(listTitoli.get(i), Double.parseDouble(readValue));
+										   .add(listTitoli.get(i), Double.parseDouble(readValue));
 						} else {
 							ratingsByCountry.get(data)
 							   .get(country)
-							   .addDouble(listTitoli.get(i), -1.0);
+							   .add(listTitoli.get(i), -1.0);
 						}
 						break;
 					case "Total Average Rating":
-						ratingsByCountry.get(data).get(country).addDouble(listTitoli.get(i), Double.parseDouble(readValue));
+						ratingsByCountry.get(data).get(country).add(listTitoli.get(i), Double.parseDouble(readValue));
 						break;
 					}
 					
@@ -368,15 +363,392 @@ public class Normalizzazione implements Visitor {
 						if(!readValue.equals("NA")) {
 							ratingsByOsVersion.get(data)
 										   .get(osVersion)
-										   .addDouble(listTitoli.get(i), Double.parseDouble(readValue));
+										   .add(listTitoli.get(i), Double.parseDouble(readValue));
 						} else {
 							ratingsByOsVersion.get(data)
 							   .get(osVersion)
-							   .addDouble(listTitoli.get(i), -1.0);
+							   .add(listTitoli.get(i), -1.0);
 						}
 						break;
 					case "Total Average Rating":
-						ratingsByOsVersion.get(data).get(osVersion).addDouble(listTitoli.get(i), Double.parseDouble(readValue));
+						ratingsByOsVersion.get(data).get(osVersion).add(listTitoli.get(i), Double.parseDouble(readValue));
+						break;
+					}
+					
+					i++;
+				}
+			}
+			
+			ratingsByOsVersion.printRecursive();
+			
+			//Riempimento Dati
+//			dati.setNumeroDownloadTotali(listDownload);
+			
+			lineScan.close();
+			fileScan.close();
+			
+		} catch (FileNotFoundException | UnsupportedEncodingException e) {
+			e.printStackTrace();
+		}
+		
+		return dati;
+    }
+	
+	@Override
+	public Object visit(GoogleStore google) {
+		Scanner fileScan = null;
+		Scanner lineScan = null;
+		Dati dati = app.getDati();
+		dati = new Dati();
+		
+		//################# INSTALLS - OVERVIEW
+		try {
+			InputStreamReader isr = new InputStreamReader(new FileInputStream(files.get(0)), "UTF-16");
+			fileScan = new Scanner(isr);
+						
+			ArrayList<String> listTitoli = getTitoli(fileScan);
+			
+			//Installazioni per versione app
+			DatiElement installsOverview = dati.getInstallsOverview();			
+			while(fileScan.hasNextLine()) {	//Fino alla fine del file
+				//Leggo riga dal file
+				lineScan = new Scanner(fileScan.nextLine());
+				lineScan.useDelimiter(",");
+				
+				int i = 0;
+				String data = null;
+				String readValue = null;
+				while(lineScan.hasNext()) {		//Per ogni valore della riga
+					readValue = lineScan.next();
+					
+					switch(listTitoli.get(i)) {
+					case "Date":
+						data = readValue;
+						installsOverview.add(data);
+						break;
+					case "Total User Installs":
+						installsOverview.get(data).add(listTitoli.get(i), Integer.parseInt(readValue));
+						break;
+					case "Daily User Installs":
+						installsOverview.get(data).add(listTitoli.get(i), Integer.parseInt(readValue));
+						break;
+					case "Daily User Uninstalls":
+						installsOverview.get(data).add(listTitoli.get(i), Integer.parseInt(readValue));
+						break;
+					case "Active Device Installs":
+						installsOverview.get(data).add(listTitoli.get(i), Integer.parseInt(readValue));
+						break;
+					}
+					
+					i++;
+				}
+			}
+			
+			installsOverview.printRecursive();
+			
+			//Riempimento Dati
+			//dati.setNumeroDownloadTotali(listDownload);
+			
+			lineScan.close();
+			fileScan.close();
+			
+		} catch (FileNotFoundException | UnsupportedEncodingException e) {
+			e.printStackTrace();
+		}
+		
+		
+		//########## INSTALL - per VERSIONE APP
+		try {
+			InputStreamReader isr = new InputStreamReader(new FileInputStream(files.get(1)), "UTF-16");
+			fileScan = new Scanner(isr);
+						
+			ArrayList<String> listTitoli = getTitoli(fileScan);
+			
+			//Installazioni per versione app
+			DatiElement installsByAppVersion = dati.getInstallsByAppVersion();			
+			while(fileScan.hasNextLine()) {	//Fino alla fine del file
+				//Leggo riga dal file
+				lineScan = new Scanner(fileScan.nextLine());
+				lineScan.useDelimiter(",");
+				
+				int i = 0;
+				String data = null;
+				String appVersion = null;
+				String readValue = null;
+				while(lineScan.hasNext()) {		//Per ogni valore della riga
+					readValue = lineScan.next();
+					
+					switch(listTitoli.get(i)) {
+					case "Date":
+						data = readValue;
+						installsByAppVersion.add(data);
+						break;
+					case "App Version Code":
+						appVersion = readValue;
+						installsByAppVersion.get(data).add(appVersion);
+						break;
+					case "Total User Installs":
+						installsByAppVersion.get(data).get(appVersion).add(listTitoli.get(i), Integer.parseInt(readValue));
+						break;
+					case "Daily User Installs":
+						installsByAppVersion.get(data).get(appVersion).add(listTitoli.get(i), Integer.parseInt(readValue));
+						break;
+					case "Daily User Uninstalls":
+						installsByAppVersion.get(data).get(appVersion).add(listTitoli.get(i), Integer.parseInt(readValue));
+						break;
+					case "Active Device Installs":
+						installsByAppVersion.get(data).get(appVersion).add(listTitoli.get(i), Integer.parseInt(readValue));
+						break;
+					}
+					
+					i++;
+				}
+			}
+			
+			installsByAppVersion.printRecursive();
+			
+			//Riempimento Dati
+//			dati.setNumeroDownloadTotali(listDownload);
+			
+			lineScan.close();
+			fileScan.close();
+			
+		} catch (FileNotFoundException | UnsupportedEncodingException e) {
+			e.printStackTrace();
+		}
+		
+		
+		
+		//########## INSTALL - per PAESE
+		try {
+			InputStreamReader isr = new InputStreamReader(new FileInputStream(files.get(2)), "UTF-16");
+			fileScan = new Scanner(isr);
+						
+			ArrayList<String> listTitoli = getTitoli(fileScan);
+			
+			//Installazioni per versione app
+			DatiElement installsByCountry = dati.getInstallsByCountry();			
+			while(fileScan.hasNextLine()) {	//Fino alla fine del file
+				//Leggo riga dal file
+				lineScan = new Scanner(fileScan.nextLine());
+				lineScan.useDelimiter(",");
+				
+				int i = 0;
+				String data = null;
+				String country = null;
+				String readValue = null;
+				while(lineScan.hasNext()) {		//Per ogni valore della riga
+					readValue = lineScan.next();
+					
+					switch(listTitoli.get(i)) {
+					case "Date":
+						data = readValue;
+						installsByCountry.add(data);
+						break;
+					case "Country":
+						country = readValue;
+						installsByCountry.get(data).add(country);
+						break;
+					case "Total User Installs":
+						installsByCountry.get(data).get(country).add(listTitoli.get(i), Integer.parseInt(readValue));
+						break;
+					case "Daily User Installs":
+						installsByCountry.get(data).get(country).add(listTitoli.get(i), Integer.parseInt(readValue));
+						break;
+					case "Daily User Uninstalls":
+						installsByCountry.get(data).get(country).add(listTitoli.get(i), Integer.parseInt(readValue));
+						break;
+					case "Active Device Installs":
+						installsByCountry.get(data).get(country).add(listTitoli.get(i), Integer.parseInt(readValue));
+						break;
+					}
+					
+					i++;
+				}
+			}
+			
+			installsByCountry.printRecursive();
+			
+			//Riempimento Dati
+//			dati.setNumeroDownloadTotali(listDownload);
+			
+			lineScan.close();
+			fileScan.close();
+			
+		} catch (FileNotFoundException | UnsupportedEncodingException e) {
+			e.printStackTrace();
+		}
+		
+		
+		//########## RATINGS - OVERVIEW
+		try {
+			InputStreamReader isr = new InputStreamReader(new FileInputStream(files.get(3)), "UTF-16");
+			fileScan = new Scanner(isr);
+						
+			ArrayList<String> listTitoli = getTitoli(fileScan);
+			
+			//Installazioni per versione app
+			DatiElement ratingsOverview = dati.getRatingsOverview();			
+			while(fileScan.hasNextLine()) {	//Fino alla fine del file
+				//Leggo riga dal file
+				lineScan = new Scanner(fileScan.nextLine());
+				lineScan.useDelimiter(",");
+				
+				int i = 0;
+				String data = null;
+				String packageName = null;
+				String readValue = null;
+				while(lineScan.hasNext()) {		//Per ogni valore della riga
+					readValue = lineScan.next();
+					
+					switch(listTitoli.get(i)) {
+					case "Date":
+						data = readValue;
+						ratingsOverview.add(data);
+						break;
+					case "Package Name":
+						packageName = readValue;
+						ratingsOverview.get(data).add(packageName);
+						break;
+					case "Daily Average Rating":
+						if(!readValue.equals("NA")) {
+							ratingsOverview.get(data)
+										   .get(packageName)
+										   .add(listTitoli.get(i), Double.parseDouble(readValue));
+						} else {
+							ratingsOverview.get(data)
+							   .get(packageName)
+							   .add(listTitoli.get(i), -1.0);
+						}
+						break;
+					case "Total Average Rating":
+						ratingsOverview.get(data).get(packageName).add(listTitoli.get(i), Double.parseDouble(readValue));
+						break;
+					}
+					
+					i++;
+				}
+			}
+			
+			ratingsOverview.printRecursive();
+			
+			//Riempimento Dati
+//			dati.setNumeroDownloadTotali(listDownload);
+			
+			lineScan.close();
+			fileScan.close();
+			
+		} catch (FileNotFoundException | UnsupportedEncodingException e) {
+			e.printStackTrace();
+		}
+		
+		
+		//########## RATINGS - PAESE
+		try {
+			InputStreamReader isr = new InputStreamReader(new FileInputStream(files.get(4)), "UTF-16");
+			fileScan = new Scanner(isr);
+						
+			ArrayList<String> listTitoli = getTitoli(fileScan);
+			
+			//Installazioni per versione app
+			DatiElement ratingsByCountry = dati.getRatingsByCountry();			
+			while(fileScan.hasNextLine()) {	//Fino alla fine del file
+				//Leggo riga dal file
+				lineScan = new Scanner(fileScan.nextLine());
+				lineScan.useDelimiter(",");
+				
+				int i = 0;
+				String data = null;
+				String country = null;
+				String readValue = null;
+				while(lineScan.hasNext()) {		//Per ogni valore della riga
+					readValue = lineScan.next();
+					
+					switch(listTitoli.get(i)) {
+					case "Date":
+						data = readValue;
+						ratingsByCountry.add(data);
+						break;
+					case "Country":
+						country = readValue;
+						ratingsByCountry.get(data).add(country);
+						break;
+					case "Daily Average Rating":
+						if(!readValue.equals("NA")) {
+							ratingsByCountry.get(data)
+										   .get(country)
+										   .add(listTitoli.get(i), Double.parseDouble(readValue));
+						} else {
+							ratingsByCountry.get(data)
+							   .get(country)
+							   .add(listTitoli.get(i), -1.0);
+						}
+						break;
+					case "Total Average Rating":
+						ratingsByCountry.get(data).get(country).add(listTitoli.get(i), Double.parseDouble(readValue));
+						break;
+					}
+					
+					i++;
+				}
+			}
+			
+			ratingsByCountry.printRecursive();
+			
+			//Riempimento Dati
+//			dati.setNumeroDownloadTotali(listDownload);
+			
+			lineScan.close();
+			fileScan.close();
+			
+		} catch (FileNotFoundException | UnsupportedEncodingException e) {
+			e.printStackTrace();
+		}
+				
+		
+		//########## RATINGS - VERSIONE OS
+		try {
+			InputStreamReader isr = new InputStreamReader(new FileInputStream(files.get(5)), "UTF-16");
+			fileScan = new Scanner(isr);
+						
+			ArrayList<String> listTitoli = getTitoli(fileScan);
+			
+			//Installazioni per versione app
+			DatiElement ratingsByOsVersion = dati.getRatingsByOsVersion();			
+			while(fileScan.hasNextLine()) {	//Fino alla fine del file
+				//Leggo riga dal file
+				lineScan = new Scanner(fileScan.nextLine());
+				lineScan.useDelimiter(",");
+				
+				int i = 0;
+				String data = null;
+				String osVersion = null;
+				String readValue = null;
+				while(lineScan.hasNext()) {		//Per ogni valore della riga
+					readValue = lineScan.next();
+					
+					switch(listTitoli.get(i)) {
+					case "Date":
+						data = readValue;
+						ratingsByOsVersion.add(data);
+						break;
+					case "Android OS Version":
+						osVersion = readValue;
+						ratingsByOsVersion.get(data).add(osVersion);
+						break;
+					case "Daily Average Rating":
+						if(!readValue.equals("NA")) {
+							ratingsByOsVersion.get(data)
+										   .get(osVersion)
+										   .add(listTitoli.get(i), Double.parseDouble(readValue));
+						} else {
+							ratingsByOsVersion.get(data)
+							   .get(osVersion)
+							   .add(listTitoli.get(i), -1.0);
+						}
+						break;
+					case "Total Average Rating":
+						ratingsByOsVersion.get(data).get(osVersion).add(listTitoli.get(i), Double.parseDouble(readValue));
 						break;
 					}
 					
@@ -402,7 +774,379 @@ public class Normalizzazione implements Visitor {
 
 	@Override
 	public Object visit(WinStore win) {
-		return null;
+		Scanner fileScan = null;
+		Scanner lineScan = null;
+		Dati dati = app.getDati();
+		dati = new Dati();
+		
+		//################# INSTALLS - OVERVIEW
+		try {
+			InputStreamReader isr = new InputStreamReader(new FileInputStream(files.get(0)), "UTF-16");
+			fileScan = new Scanner(isr);
+						
+			ArrayList<String> listTitoli = getTitoli(fileScan);
+			
+			//Installazioni per versione app
+			DatiElement installsOverview = dati.getInstallsOverview();			
+			while(fileScan.hasNextLine()) {	//Fino alla fine del file
+				//Leggo riga dal file
+				lineScan = new Scanner(fileScan.nextLine());
+				lineScan.useDelimiter(",");
+				
+				int i = 0;
+				String data = null;
+				String readValue = null;
+				while(lineScan.hasNext()) {		//Per ogni valore della riga
+					readValue = lineScan.next();
+					
+					switch(listTitoli.get(i)) {
+					case "Date":
+						data = readValue;
+						installsOverview.add(data);
+						break;
+					case "Total User Installs":
+						installsOverview.get(data).add(listTitoli.get(i), Integer.parseInt(readValue));
+						break;
+					case "Daily User Installs":
+						installsOverview.get(data).add(listTitoli.get(i), Integer.parseInt(readValue));
+						break;
+					case "Daily User Uninstalls":
+						installsOverview.get(data).add(listTitoli.get(i), Integer.parseInt(readValue));
+						break;
+					case "Active Device Installs":
+						installsOverview.get(data).add(listTitoli.get(i), Integer.parseInt(readValue));
+						break;
+					}
+					
+					i++;
+				}
+			}
+			
+			installsOverview.printRecursive();
+			
+			//Riempimento Dati
+			//dati.setNumeroDownloadTotali(listDownload);
+			
+			lineScan.close();
+			fileScan.close();
+			
+		} catch (FileNotFoundException | UnsupportedEncodingException e) {
+			e.printStackTrace();
+		}
+		
+		
+		//########## INSTALL - per VERSIONE APP
+		try {
+			InputStreamReader isr = new InputStreamReader(new FileInputStream(files.get(1)), "UTF-16");
+			fileScan = new Scanner(isr);
+						
+			ArrayList<String> listTitoli = getTitoli(fileScan);
+			
+			//Installazioni per versione app
+			DatiElement installsByAppVersion = dati.getInstallsByAppVersion();			
+			while(fileScan.hasNextLine()) {	//Fino alla fine del file
+				//Leggo riga dal file
+				lineScan = new Scanner(fileScan.nextLine());
+				lineScan.useDelimiter(",");
+				
+				int i = 0;
+				String data = null;
+				String appVersion = null;
+				String readValue = null;
+				while(lineScan.hasNext()) {		//Per ogni valore della riga
+					readValue = lineScan.next();
+					
+					switch(listTitoli.get(i)) {
+					case "Date":
+						data = readValue;
+						installsByAppVersion.add(data);
+						break;
+					case "App Version Code":
+						appVersion = readValue;
+						installsByAppVersion.get(data).add(appVersion);
+						break;
+					case "Total User Installs":
+						installsByAppVersion.get(data).get(appVersion).add(listTitoli.get(i), Integer.parseInt(readValue));
+						break;
+					case "Daily User Installs":
+						installsByAppVersion.get(data).get(appVersion).add(listTitoli.get(i), Integer.parseInt(readValue));
+						break;
+					case "Daily User Uninstalls":
+						installsByAppVersion.get(data).get(appVersion).add(listTitoli.get(i), Integer.parseInt(readValue));
+						break;
+					case "Active Device Installs":
+						installsByAppVersion.get(data).get(appVersion).add(listTitoli.get(i), Integer.parseInt(readValue));
+						break;
+					}
+					
+					i++;
+				}
+			}
+			
+			installsByAppVersion.printRecursive();
+			
+			//Riempimento Dati
+//			dati.setNumeroDownloadTotali(listDownload);
+			
+			lineScan.close();
+			fileScan.close();
+			
+		} catch (FileNotFoundException | UnsupportedEncodingException e) {
+			e.printStackTrace();
+		}
+		
+		
+		
+		//########## INSTALL - per PAESE
+		try {
+			InputStreamReader isr = new InputStreamReader(new FileInputStream(files.get(2)), "UTF-16");
+			fileScan = new Scanner(isr);
+						
+			ArrayList<String> listTitoli = getTitoli(fileScan);
+			
+			//Installazioni per versione app
+			DatiElement installsByCountry = dati.getInstallsByCountry();			
+			while(fileScan.hasNextLine()) {	//Fino alla fine del file
+				//Leggo riga dal file
+				lineScan = new Scanner(fileScan.nextLine());
+				lineScan.useDelimiter(",");
+				
+				int i = 0;
+				String data = null;
+				String country = null;
+				String readValue = null;
+				while(lineScan.hasNext()) {		//Per ogni valore della riga
+					readValue = lineScan.next();
+					
+					switch(listTitoli.get(i)) {
+					case "Date":
+						data = readValue;
+						installsByCountry.add(data);
+						break;
+					case "Country":
+						country = readValue;
+						installsByCountry.get(data).add(country);
+						break;
+					case "Total User Installs":
+						installsByCountry.get(data).get(country).add(listTitoli.get(i), Integer.parseInt(readValue));
+						break;
+					case "Daily User Installs":
+						installsByCountry.get(data).get(country).add(listTitoli.get(i), Integer.parseInt(readValue));
+						break;
+					case "Daily User Uninstalls":
+						installsByCountry.get(data).get(country).add(listTitoli.get(i), Integer.parseInt(readValue));
+						break;
+					case "Active Device Installs":
+						installsByCountry.get(data).get(country).add(listTitoli.get(i), Integer.parseInt(readValue));
+						break;
+					}
+					
+					i++;
+				}
+			}
+			
+			installsByCountry.printRecursive();
+			
+			//Riempimento Dati
+//			dati.setNumeroDownloadTotali(listDownload);
+			
+			lineScan.close();
+			fileScan.close();
+			
+		} catch (FileNotFoundException | UnsupportedEncodingException e) {
+			e.printStackTrace();
+		}
+		
+		
+		//########## RATINGS - OVERVIEW
+		try {
+			InputStreamReader isr = new InputStreamReader(new FileInputStream(files.get(3)), "UTF-16");
+			fileScan = new Scanner(isr);
+						
+			ArrayList<String> listTitoli = getTitoli(fileScan);
+			
+			//Installazioni per versione app
+			DatiElement ratingsOverview = dati.getRatingsOverview();			
+			while(fileScan.hasNextLine()) {	//Fino alla fine del file
+				//Leggo riga dal file
+				lineScan = new Scanner(fileScan.nextLine());
+				lineScan.useDelimiter(",");
+				
+				int i = 0;
+				String data = null;
+				String packageName = null;
+				String readValue = null;
+				while(lineScan.hasNext()) {		//Per ogni valore della riga
+					readValue = lineScan.next();
+					
+					switch(listTitoli.get(i)) {
+					case "Date":
+						data = readValue;
+						ratingsOverview.add(data);
+						break;
+					case "Package Name":
+						packageName = readValue;
+						ratingsOverview.get(data).add(packageName);
+						break;
+					case "Daily Average Rating":
+						if(!readValue.equals("NA")) {
+							ratingsOverview.get(data)
+										   .get(packageName)
+										   .add(listTitoli.get(i), Double.parseDouble(readValue));
+						} else {
+							ratingsOverview.get(data)
+							   .get(packageName)
+							   .add(listTitoli.get(i), -1.0);
+						}
+						break;
+					case "Total Average Rating":
+						ratingsOverview.get(data).get(packageName).add(listTitoli.get(i), Double.parseDouble(readValue));
+						break;
+					}
+					
+					i++;
+				}
+			}
+			
+			ratingsOverview.printRecursive();
+			
+			//Riempimento Dati
+//			dati.setNumeroDownloadTotali(listDownload);
+			
+			lineScan.close();
+			fileScan.close();
+			
+		} catch (FileNotFoundException | UnsupportedEncodingException e) {
+			e.printStackTrace();
+		}
+		
+		
+		//########## RATINGS - PAESE
+		try {
+			InputStreamReader isr = new InputStreamReader(new FileInputStream(files.get(4)), "UTF-16");
+			fileScan = new Scanner(isr);
+						
+			ArrayList<String> listTitoli = getTitoli(fileScan);
+			
+			//Installazioni per versione app
+			DatiElement ratingsByCountry = dati.getRatingsByCountry();			
+			while(fileScan.hasNextLine()) {	//Fino alla fine del file
+				//Leggo riga dal file
+				lineScan = new Scanner(fileScan.nextLine());
+				lineScan.useDelimiter(",");
+				
+				int i = 0;
+				String data = null;
+				String country = null;
+				String readValue = null;
+				while(lineScan.hasNext()) {		//Per ogni valore della riga
+					readValue = lineScan.next();
+					
+					switch(listTitoli.get(i)) {
+					case "Date":
+						data = readValue;
+						ratingsByCountry.add(data);
+						break;
+					case "Country":
+						country = readValue;
+						ratingsByCountry.get(data).add(country);
+						break;
+					case "Daily Average Rating":
+						if(!readValue.equals("NA")) {
+							ratingsByCountry.get(data)
+										   .get(country)
+										   .add(listTitoli.get(i), Double.parseDouble(readValue));
+						} else {
+							ratingsByCountry.get(data)
+							   .get(country)
+							   .add(listTitoli.get(i), -1.0);
+						}
+						break;
+					case "Total Average Rating":
+						ratingsByCountry.get(data).get(country).add(listTitoli.get(i), Double.parseDouble(readValue));
+						break;
+					}
+					
+					i++;
+				}
+			}
+			
+			ratingsByCountry.printRecursive();
+			
+			//Riempimento Dati
+//			dati.setNumeroDownloadTotali(listDownload);
+			
+			lineScan.close();
+			fileScan.close();
+			
+		} catch (FileNotFoundException | UnsupportedEncodingException e) {
+			e.printStackTrace();
+		}
+				
+		
+		//########## RATINGS - VERSIONE OS
+		try {
+			InputStreamReader isr = new InputStreamReader(new FileInputStream(files.get(5)), "UTF-16");
+			fileScan = new Scanner(isr);
+						
+			ArrayList<String> listTitoli = getTitoli(fileScan);
+			
+			//Installazioni per versione app
+			DatiElement ratingsByOsVersion = dati.getRatingsByOsVersion();			
+			while(fileScan.hasNextLine()) {	//Fino alla fine del file
+				//Leggo riga dal file
+				lineScan = new Scanner(fileScan.nextLine());
+				lineScan.useDelimiter(",");
+				
+				int i = 0;
+				String data = null;
+				String osVersion = null;
+				String readValue = null;
+				while(lineScan.hasNext()) {		//Per ogni valore della riga
+					readValue = lineScan.next();
+					
+					switch(listTitoli.get(i)) {
+					case "Date":
+						data = readValue;
+						ratingsByOsVersion.add(data);
+						break;
+					case "Android OS Version":
+						osVersion = readValue;
+						ratingsByOsVersion.get(data).add(osVersion);
+						break;
+					case "Daily Average Rating":
+						if(!readValue.equals("NA")) {
+							ratingsByOsVersion.get(data)
+										   .get(osVersion)
+										   .add(listTitoli.get(i), Double.parseDouble(readValue));
+						} else {
+							ratingsByOsVersion.get(data)
+							   .get(osVersion)
+							   .add(listTitoli.get(i), -1.0);
+						}
+						break;
+					case "Total Average Rating":
+						ratingsByOsVersion.get(data).get(osVersion).add(listTitoli.get(i), Double.parseDouble(readValue));
+						break;
+					}
+					
+					i++;
+				}
+			}
+			
+			ratingsByOsVersion.printRecursive();
+			
+			//Riempimento Dati
+//			dati.setNumeroDownloadTotali(listDownload);
+			
+			lineScan.close();
+			fileScan.close();
+			
+		} catch (FileNotFoundException | UnsupportedEncodingException e) {
+			e.printStackTrace();
+		}
+		
+		return dati;
 	}
 	
 	/**

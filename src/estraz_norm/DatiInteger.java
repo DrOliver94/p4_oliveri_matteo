@@ -27,7 +27,7 @@ public class DatiInteger extends DatiElement {
 	 */
 	@Override
 	public Double getDouble() {
-		return (value + 0.0);
+		return ((double)value);
 	}
 	
 	@Override
